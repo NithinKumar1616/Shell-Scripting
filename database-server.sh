@@ -6,7 +6,7 @@ set -e
 
 set -o
 
-sudo su /home/ec2-user
+cd /home/ec2-user || exit
 
 #Install MySQL Server 8.0.x
 
