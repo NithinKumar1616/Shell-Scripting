@@ -62,12 +62,3 @@ sudo systemctl enable backend
 
 #To have it installed we can use
 
-sudo dnf install mysql -y
-
-#Load Schema
-
-mysql -h database-server.nithinlearning.site -uroot -pExpenseApp@1 < /app/schema/backend.sql
-
-#Restart the service.
-
-sudo systemctl restart backend
