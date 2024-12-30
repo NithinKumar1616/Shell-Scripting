@@ -6,21 +6,19 @@ set -e
 
 set -o
 
-sudo su ~
-
-cd /
+cd /home/ec2-user || exit
 
 #Install Nginx
 
-dnf install nginx -y 
+sudo dnf install nginx -y 
 
 #Enable nginx
 
-systemctl enable nginx
+sudo systemctl enable nginx
 
 #Start nginx
 
-systemctl start nginx
+sudo systemctl start nginx
 
 #Remove the default content that web server is serving.
 
@@ -53,4 +51,4 @@ location /health {
 
 #Restart Nginx Service to load the changes of the configuration.
 
-systemctl restart nginx
+sudo systemctl restart nginx

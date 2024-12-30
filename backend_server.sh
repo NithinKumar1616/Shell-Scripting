@@ -6,7 +6,7 @@ set -e
 
 set -o
 
-sudo su /home/ec2-user
+cd /home/ec2-user || exit
 
 sudo dnf module disable nodejs -y
 
@@ -41,7 +41,7 @@ Description = Backend Service
 
 [Service]
 User=expense
-Environment=DB_HOST="<MYSQL-SERVER-IPADDRESS>"
+Environment=DB_HOST="database-server.nithinlearning.site"
 ExecStart=/bin/node /app/index.js
 SyslogIdentifier=backend
 
@@ -60,7 +60,7 @@ systemctl enable backend
 
 #To have it installed we can use
 
-dnf install mysql -y
+sudo dnf install mysql -y
 
 #Load Schema
 
@@ -68,4 +68,4 @@ mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sq
 
 #Restart the service.
 
-systemctl restart backend
+sudo systemctl restart backend
