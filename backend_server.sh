@@ -16,21 +16,21 @@ sudo dnf install nodejs -y
 
 #Add application User
 
-useradd expense
+sudo useradd -m expense || echo "User 'expense' already exists"
 
 #We keep application in one standard location. This is a usual practice that runs in the organization.
 
 #Lets setup an app directory.
 
-mkdir /app
+sudo mkdir /app
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
 
 cd /app
 
-unzip /tmp/backend.zip
+sudo unzip /tmp/backend.zip
 
-npm install
+sudo npm install
 
 #We need to setup a new service in systemd so systemctl can manage this service
 
@@ -48,11 +48,11 @@ SyslogIdentifier=backend
 [Install]
 WantedBy=multi-user.target
 
-systemctl daemon-reload
+sudo systemctl daemon-reload
 
-systemctl start backend
+sudo systemctl start backend
 
-systemctl enable backend
+sudo systemctl enable backend
 
 #For this application to work fully functional we need to load schema to the Database.
 
