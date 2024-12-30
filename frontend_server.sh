@@ -36,13 +36,10 @@ unzip /tmp/frontend.zip
 
 #Create Nginx Reverse Proxy Configuration.
 
-vim /etc/nginx/default.d/expense.conf
-
-#Add the following content
-
+sudo bash -c 'cat <<EOF >  /etc/nginx/default.d/expense.conf
 proxy_http_version 1.1;
 
-location /api/ { proxy_pass http://localhost:8080/; }
+location /api/ { proxy_pass http://backend-server.nithinlearning.site:8080/; }
 
 location /health {
   stub_status on;
