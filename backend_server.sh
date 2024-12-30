@@ -34,10 +34,11 @@ sudo npm install
 
 #We need to setup a new service in systemd so systemctl can manage this service
 
-vim /etc/systemd/system/backend.service
+# Create the backend.service file programmatically
 
+sudo bash -c 'cat <<EOF > /etc/systemd/system/backend.service
 [Unit]
-Description = Backend Service
+Description=Backend Service
 
 [Service]
 User=expense
@@ -47,6 +48,7 @@ SyslogIdentifier=backend
 
 [Install]
 WantedBy=multi-user.target
+EOF'
 
 sudo systemctl daemon-reload
 
