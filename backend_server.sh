@@ -66,7 +66,7 @@ sudo dnf install mysql -y
 
 #Load Schema
 
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h database-server.nithinlearning.site -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 #Restart the service.
 
