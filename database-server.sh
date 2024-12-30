@@ -6,21 +6,19 @@ set -e
 
 set -o
 
-sudo su ~
-
-cd /
+sudo su /home/ec2-user
 
 #Install MySQL Server 8.0.x
 
-dnf install mysql-server -y
+sudo dnf install mysql-server -y
 
 #Start MySQL Service
 
-systemctl enable mysqld
+sudo systemctl enable mysqld
 
-systemctl start mysqld
+sudo systemctl start mysqld
 
-systemctl status mysqld
+sudo systemctl status mysqld
 
 #Next, We need to change the default root password in order to start using the database service. Use password ExpenseApp@1 or any other as per your choice.
 
