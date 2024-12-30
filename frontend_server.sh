@@ -45,7 +45,8 @@ location /health {
   stub_status on;
   access_log off;
 }
+EOF'
 
-#Restart Nginx Service to load the changes of the configuration.
+Restart Nginx Service to load the changes of the configuration.
 
 sudo systemctl restart nginx
