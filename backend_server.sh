@@ -9,25 +9,25 @@ set -o
 cd /home/ec2-user || exit
 
 sudo dnf module disable nodejs -y
-$?
+
 
 sudo dnf module enable nodejs:20 -y
-$?
+
 
 sudo dnf install nodejs -y
-$?
+
 
 #Add application User
 
 sudo useradd expense || echo "User 'expense' has been added successfully"
-$?
+
 
 #We keep application in one standard location. This is a usual practice that runs in the organization.
 
 #Lets setup an app directory.
 
 sudo mkdir /app
-$?
+
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
 
@@ -57,13 +57,13 @@ SyslogIdentifier=backend
 WantedBy=multi-user.target
 EOF'
 
-$?
+
 
 sudo dnf install mysql -y
-$?
+
 
 sudo mysql -h database-server.nithinlearning.site -uroot -pExpenseApp@1 < /app/schema/backend.sql
-$?
+
 
 sudo systemctl daemon-reload
 
