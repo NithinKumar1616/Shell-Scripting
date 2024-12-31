@@ -47,6 +47,6 @@ location /health {
 }
 EOF'
 
-Restart Nginx Service to load the changes of the configuration.
+#Restart Nginx Service to load the changes of the configuration.
 
 sudo systemctl restart nginx
